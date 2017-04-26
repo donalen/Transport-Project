@@ -2,34 +2,34 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-// Управление общими сведениями о сборке осуществляется с помощью 
+// Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("OT")]
+[assembly: AssemblyTitle("Transport")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("OT")]
+[assembly: AssemblyProduct("Transport")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-// Параметр ComVisible со значением FALSE делает типы в сборке невидимыми 
-// для COM-компонентов.  Если требуется обратиться к типу в этой сборке через 
+// Установка значения False для параметра ComVisible делает типы в этой сборке невидимыми
+// для компонентов COM. Если необходимо обратиться к типу в этой сборке через
 // COM, задайте атрибуту ComVisible значение TRUE для этого типа.
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("614c02cf-efd0-41b3-a391-96a1d3421dba")]
+[assembly: Guid("6325e9e6-24dc-4c42-94b1-4b0a4ed6588b")]
 
 // Сведения о версии сборки состоят из следующих четырех значений:
 //
 //      Основной номер версии
-//      Дополнительный номер версии 
-//      Номер построения
+//      Дополнительный номер версии
+//   Номер сборки
 //      Редакция
 //
-// Можно задать все значения или принять номер построения и номер редакции по умолчанию, 
+// Можно задать все значения или принять номер сборки и номер редакции по умолчанию.
 // используя "*", как показано ниже:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
