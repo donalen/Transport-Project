@@ -9,6 +9,21 @@ namespace OT
 {
     class Program
     {
+        static int FindKeyWord(string[] split, string line, int startiNumber)
+        {
+            int lineNumber = -1;
+            for (int i = startiNumber; i < split.Length; i++)
+            {
+                int startIndex = split[i].IndexOf(line);
+                if (startIndex != -1)
+                {
+                    lineNumber = i;
+                    break;
+                }
+            }
+            return lineNumber;
+        }
+
         static void Main(string[] args)
         {
             WebClient client = new WebClient();
@@ -27,28 +42,11 @@ namespace OT
 
             /// TO DO Вынести циклы в функцию
             string startLine = "Табло";
-            int startLineNumber = -1;
-            for (int i = 0; i < split.Length; i++)
-            {
-                int startIndex = split[i].IndexOf(startLine);
-                if (startIndex != -1)
-                {
-                    startLineNumber = i;
-                    break;
-                }
-            }
+            int startLineNumber = FindKeyWord(split, startLine, 0);
 
             string endLine = "назад";
-            int endLineNumber = -1;
-            for (int i = startLineNumber + 1; i < split.Length; i++)
-            {
-                int endIndex = split[i].IndexOf(endLine);
-                if (endIndex != -1)
-                {
-                    endLineNumber = i;
-                    break;
-                }
-            }
+            int endLineNumber = FindKeyWord(split, endLine, startLineNumber);
+            
             Console.WriteLine("{0}, {1}", startLineNumber, endLineNumber);
 
             string[] transportTable = new string[endLineNumber - startLineNumber - 1];
