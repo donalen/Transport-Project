@@ -45,12 +45,13 @@ namespace TransportProject
 
         public void PrintTransport()
         {
-            Console.WriteLine(this.name);
-            Console.WriteLine(this.number);
-            //foreach (string element in this.schedule)
-            //{
-            //    Console.WriteLine(element);
-            //}
+            Console.Write("{0} ", this.name);
+            Console.Write("{0} ", this.number);
+            foreach (string element in this.schedule)
+            {
+                Console.Write("{0} ", element);
+            }
+            Console.WriteLine();
         }
     }
 }
