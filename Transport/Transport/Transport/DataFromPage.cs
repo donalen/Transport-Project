@@ -9,10 +9,28 @@ namespace TransportProject
 {
     public class DataFromPage
     {
+        private string pageAddress;
+
+        public string PageAddress
+        {
+            get { return pageAddress; }
+            set { pageAddress = value; }
+        }
+
+        public DataFromPage()
+        {
+
+        }
+
+        public DataFromPage(string pageAddressValue)
+        {
+            this.pageAddress = pageAddressValue;
+        }
+
         private string GetDataFromPage()
         {
             WebClient client = new WebClient();
-            String downloadedString = client.DownloadString("http://yartr.ru/rasp.php?vt=1&nmar=3&q=0&id=315&view=1");
+            String downloadedString = client.DownloadString(pageAddress);
             return downloadedString;
         }
 

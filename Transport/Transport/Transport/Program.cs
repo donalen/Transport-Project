@@ -11,20 +11,25 @@ namespace TransportProject
     {
         static void Main(string[] args)
         {
-            DataFromPage dfp = new DataFromPage();
-            Transport transport = dfp.CreateTransport();
+            DataFromPage dfpFromAlena = new DataFromPage("http://yartr.ru/rasp.php?vt=1&nmar=3&q=0&id=315&view=1");
+            Transport transportFromAlena = dfpFromAlena.CreateTransport();
 
-            transport.PrintTransportList();
+            DataFromPage dfpFromAndrey = new DataFromPage("http://yartr.ru/rasp.php?vt=1&nmar=3&q=1&id=931&view=1");
+            Transport transportFromAndrey = dfpFromAndrey.CreateTransport();
 
-            string nameValue = "Ав";
-            string numberValue = "3";
+            transportFromAlena.PrintTransportList();
+            Console.WriteLine();
+            transportFromAndrey.PrintTransportList();
 
-            if (transport.isTransportFound(nameValue, numberValue))
-            {
-                transport.FindTransport(nameValue, numberValue).PrintTransportStructure();
-            }
-            else
-                Console.Write("Element is not found");
+            //string nameValue = "Ав";
+            //string numberValue = "3";
+
+            //if (transportFromAlena.isTransportFound(nameValue, numberValue))
+            //{
+            //    transportFromAlena.FindTransport(nameValue, numberValue).PrintTransportStructure();
+            //}
+            //else
+            //    Console.Write("Element is not found");
         }
     }
 }
