@@ -8,50 +8,48 @@ namespace TransportProject
 {
     public class Transport
     {
-        private string name;
-        private string number;
-        private List<string> schedule;
+        List<TransportStructure> transportStructure;
 
-        public string Name
+        public List<TransportStructure> TransportStructure
         {
-            get { return name; }
-            set { name = value; }
-        }
-
-        public string Number
-        {
-            get { return number; }
-            set { number = value; }
+            get { return TransportStructure; }
         }
 
         public Transport()
         {
-            this.name = null;
-            this.number = null;
-            schedule = new List<string>();
+            transportStructure = new List<TransportStructure>();
         }
 
-        public Transport(string nameValue, string numberValue)
+        public void AddToTransportList(TransportStructure element)
         {
-            this.name = nameValue;
-            this.number = numberValue;
-            schedule = new List<string>();
+            this.transportStructure.Add(element);
         }
 
-        public void AddToSchedule(string element)
+        public void PrintTransportList()
         {
-            this.schedule.Add(element);
+            foreach (TransportStructure element in this.transportStructure)
+                element.PrintTransportStructure();
         }
 
-        public void PrintTransport()
+        public bool isTransportFound(string nameValue, string numberValue)
         {
-            Console.Write("{0} ", this.name);
-            Console.Write("{0} ", this.number);
-            foreach (string element in this.schedule)
-            {
-                Console.Write("{0} ", element);
-            }
-            Console.WriteLine();
+            bool isFound = false;
+            foreach (TransportStructure element in this.transportStructure)
+                if (element.Name == nameValue && element.Number == numberValue)
+                    isFound = true;
+            return isFound;
+        }
+
+        public TransportStructure FindTransport(string nameValue, string numberValue)
+        {
+            TransportStructure transportStructureValue = new TransportStructure();
+            foreach (TransportStructure element in this.transportStructure)
+                if (element.Name == nameValue && element.Number == numberValue)
+                {
+                    transportStructureValue = element;
+                    break;
+                }
+            return transportStructureValue;
         }
     }
 }

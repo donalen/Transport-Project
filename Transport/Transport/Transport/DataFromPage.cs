@@ -64,32 +64,35 @@ namespace TransportProject
             return transportTable;
         }
 
-        public Transport[] CreateTransport()
+        public Transport CreateTransport()
         {
             string[] transportTable = CreateTransportTableStringArray();
 
-            Transport[] transport = new Transport[transportTable.Length];
+            Transport transport = new Transport();
 
             for (int i = 0; i < transportTable.Length; i++)
             {
+                TransportStructure transportStructureValue;
+                string tempName, tempNumber;
                 int spaceIndex = transportTable[i].IndexOf(' ');
-                transport[i] = new Transport();
-                transport[i].Name = transportTable[i].Substring(0, spaceIndex);
+                tempName = transportTable[i].Substring(0, spaceIndex);
                 transportTable[i] = transportTable[i].Substring(spaceIndex + 1);
                 spaceIndex = transportTable[i].IndexOf(':');
-                transport[i].Number = transportTable[i].Substring(0, spaceIndex);
+                tempNumber = transportTable[i].Substring(0, spaceIndex);
                 transportTable[i] = transportTable[i].Substring(spaceIndex + 2);
+                transportStructureValue = new TransportStructure(tempName, tempNumber);
                 spaceIndex = transportTable[i].IndexOf(' ');
                 while (spaceIndex != -1)
                 {
-                    transport[i].AddToSchedule(transportTable[i].Substring(0, spaceIndex));
+                    transportStructureValue.AddToSchedule(transportTable[i].Substring(0, spaceIndex));
                     transportTable[i] = transportTable[i].Substring(spaceIndex + 1);
                     spaceIndex = transportTable[i].IndexOf(' ');
                 }
                 if (spaceIndex == -1)
                 {
-                    transport[i].AddToSchedule(transportTable[i].Substring(0));
+                    transportStructureValue.AddToSchedule(transportTable[i].Substring(0));
                 }
+                transport.AddToTransportList(transportStructureValue);
             }
             return transport;
         }

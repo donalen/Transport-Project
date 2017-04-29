@@ -12,10 +12,19 @@ namespace TransportProject
         static void Main(string[] args)
         {
             DataFromPage dfp = new DataFromPage();
-            Transport[] transport = dfp.CreateTransport();
+            Transport transport = dfp.CreateTransport();
 
-            foreach (Transport tr in transport)
-                tr.PrintTransport();
+            transport.PrintTransportList();
+
+            string nameValue = "Ав";
+            string numberValue = "3";
+
+            if (transport.isTransportFound(nameValue, numberValue))
+            {
+                transport.FindTransport(nameValue, numberValue).PrintTransportStructure();
+            }
+            else
+                Console.Write("Element is not found");
         }
     }
 }
